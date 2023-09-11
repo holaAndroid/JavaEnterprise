@@ -9,7 +9,7 @@
         //nombre debe tener algún caracter
         //edad debe ser numérica
         //El password debe tener mínimo 6 caracteres.
-        return validarNombre();
+        return validarNombre()&&validarEdad()&&validarPassword();
     }
     function validarNombre(){
         var nombre = document.getElementById("nombre").value;
@@ -19,6 +19,23 @@
             
         }
         return true
+    }
+    function validarEdad(){
+        var edad=document.getElementById("edad").value;
+        if (isNaN(edad)) { //isNaN si no es un número
+            //True si no es numérica not a number
+            alert("La edad debe ser númerica");
+            return false;
+        }
+        return true;
+    }
+    function validarPassword(){
+        var pwd=document.getElementById("pwd").value;
+        if (pwd.length<6) {
+            alert("El password debe tener mínimo 6 caracteres");
+            return false;
+        }
+        return true;
     }
 </script>
 </head>
