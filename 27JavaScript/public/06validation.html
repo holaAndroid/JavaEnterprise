@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de formulario</title>
+<script type="text/javascript">
+    function validar(){
+        //nombre debe tener algún caracter
+        //edad debe ser numérica
+        //El password debe tener mínimo 6 caracteres.
+        return validarNombre();
+    }
+    function validarNombre(){
+        var nombre = document.getElementById("nombre").value;
+        if (nombre.length== 0) {
+            alert("El nombre debe tener algún caracter");
+            return false;
+            
+        }
+        return true
+    }
+</script>
+</head>
+<body>
+    <form action="DirServlet" method="post" onsubmit="return validar()">
+        Introduce nombre: <input type="text" id="nombre"><br><br>
+        Introduce edad: <input type="text" id="edad"><br><br>
+        Introduce contraseña: <input type="password" id="pwd"><br><br>
+        <input type="submit" value="Validar">
+    </form>
+</body>
+</html>

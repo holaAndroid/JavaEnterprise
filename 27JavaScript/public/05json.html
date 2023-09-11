@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON JavaScript Object Notation</title>
+</head>
+<body>
+    <p>JSON formato ligero de intercambio de datos.</p>
+    
+    <script type="text/javascript">
+        //Crear un JSON
+        var persona={
+            "nombre":"Pepe",
+            "edad":34,
+            "email":"pepe@hotmail.com"
+        };
+
+        //Crear un array de JSON
+        var personas=[];
+        personas.push(persona);
+        alert(personas[0].email);
+
+        //Crear un JSON sin atributos iniciales
+        var alumno={};
+        alumno.nombre="Marta";
+        alumno.edad=34;
+        alumno.curso="Ofimática";
+        //Otra forma de crear un JSON
+        var alumno2 = new Object();
+        alumno2.nombre="Pablo";
+        alumno2.edad=56;
+        alumno2.curso="Inglés";
+        alert(JSON.stringify(alumno)+JSON.stringify(alumno2));
+        
+    </script>  
+</body>
+</html>

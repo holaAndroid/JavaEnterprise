@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var suma=0;
+        var datos=[]; //Array vacío.
+        datos.push(30);
+        datos.push(7);
+        datos[2]=100;
+        datos[3]=23;
+        //recorrer array
+        /*
+        for (i = 0; i < datos.length; i++) {
+            suma += datos[i];
+            
+        }
+        */
+       for (var n of datos) {
+            suma+=n;
+       }
+        alert("La suma es "+suma);
+    </script>
+</body>
+</html>
