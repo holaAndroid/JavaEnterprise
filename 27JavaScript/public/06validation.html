@@ -9,7 +9,7 @@
         //nombre debe tener algún caracter
         //edad debe ser numérica
         //El password debe tener mínimo 6 caracteres.
-        return validarNombre()&&validarEdad()&&validarPassword();
+        return validarNombre()&&validarEdad()&&validarPassword()&&compararPassword();
     }
     function validarNombre(){
         var nombre = document.getElementById("nombre").value;
@@ -29,10 +29,34 @@
         }
         return true;
     }
+    //La contraseña debe tener algún número
+    //La contraseña debe tener alguna mayúscula
+    //La contraseña debe tener alguna minúscula
     function validarPassword(){
         var pwd=document.getElementById("pwd").value;
         if (pwd.length<6) {
             alert("El password debe tener mínimo 6 caracteres");
+            return false;
+        }else if(!pwd.match(/[A-Z]/g)){
+            alert("El password debe tener mayúscula");
+            return false;
+        }else if(!pwd.match(/[a-z]/g)){
+            alert("El password debe tener mayúscula");
+            return false;
+        }else if(!pwd.match(/[0-9]/g)){ //sino contiene número
+            alert("El password debe tener números");
+            return false;
+        }else if(!pwd.match(/[.@$%&|<>#]/g)){ //sino contiene caracteres especiales
+            alert("El password debe tener caracteres especiales .@$%&|<># ");
+            return false;
+        } 
+        return true;  
+    }
+    function compararPassword(){
+        var pwd=document.getElementById("pwd").value;
+        var pwd2=document.getElementById("pwd2").value;
+        if (pwd!=pwd2) {
+            alert("Las contraseñas no coinciden")
             return false;
         }
         return true;
@@ -44,6 +68,7 @@
         Introduce nombre: <input type="text" id="nombre"><br><br>
         Introduce edad: <input type="text" id="edad"><br><br>
         Introduce contraseña: <input type="password" id="pwd"><br><br>
+        Introduce contraseña de nuevo: <input type="password" id="pwd2"><br><br>
         <input type="submit" value="Validar">
     </form>
 </body>
