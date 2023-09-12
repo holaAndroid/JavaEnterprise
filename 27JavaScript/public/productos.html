@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <script type="text/javascript">
+     var productos=[];
+
+     function guardar(){
+        var nombre= document.getElementById("nombre").value;
+        var categoria= document.getElementById("categoria").value;
+        var precio= document.getElementById("precio").value;
+        var producto = new Object();
+            producto.nombre= nombre;
+            producto.categoria=categoria;
+            producto.precio=precio;
+            productos.push(producto);
+            alert(prductos[0]);
+     }
+
+     function mostrar(){
+        var tabla=""; // cadena vacía
+        tabla="<h1>Lista de Productos</h1>"
+        tabla+="<table border='1'><tr><th>Producto</th><th>Categoría</th><th>Precio</th>·"
+        for (var p of productos) {
+            tabla+= "<tr><td>"+p.nombre+ "</td><td>"+p.categoria+ "</td><td>"+p.precio+"</td></tr>";
+       }
+       tabla+="</table>";
+       document.getElementById("res").innerHTML=tabla
+     }
+</script>
+
+</head>
+<body>
+    <center>
+                Producto: <input type="text" id="nombre"><br><br>
+                Categoria: <input type="text" id="categoria"><br><br>
+                Precio: <input type="number" id="precio">
+                <input type="submit" value="Guardar" onclick="guardar()">
+                <input type="submit" value="Mostrar"  onclick="mostrar()">
+                <br><br>
+                <div id="res"></div>
+    </center>
+    
+</body>
+</html>
