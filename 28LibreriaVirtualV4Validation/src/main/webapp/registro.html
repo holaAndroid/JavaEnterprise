@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registro user</title>
+</head>
+<script type="text/javascript">
+	    function validarRegistro(){
+        //usuario debe tener algún caracter
+        //contraseña debe tener más de 6 caracteres
+        // mayúsc, minuscula, número y símbolos especiales
+        //email debe contener @ y .
+        //telefono debe contener algún digito número
+        return validarUser()&&validarPwd()&&validarEmail()&&validarTel();
+    }
+        function validarUser(){
+		var nombre=document.getElementById("nombre").value;
+		if(nombre.length==0){
+			alert("El nombre debe tener algún caracter");
+			return false;
+		}
+		return true;
+    }
+    //La contraseña debe tener algún número
+		//La contraseña debe tener alguna mayúscula
+		//La contraseña debe tener alguna minúscula
+		//La contraseña debe tener símbolos especiales
+    	function validarPwd(){
+        var pwd=document.getElementById("pwd").value;
+        if (pwd.length<6) {
+            alert("El password debe tener 6 caracteres o más");
+            return false;
+        }else if(!pwd.match(/[A-Z]/g)){
+            alert("El password debe tener mayúscula");
+            return false;
+        }else if(!pwd.match(/[a-z]/g)){
+            alert("El password debe tener mayúscula");
+            return false;
+        }else if(!pwd.match(/[0-9]/g)){ //sino contiene número
+            alert("El password debe tener números");
+            return false;
+        }else if(!pwd.match(/[.@$%&|<>#]/g)){ //sino contiene caracteres especiales
+            alert("El password debe tener caracteres especiales .@$%&|<># ");
+            return false;
+        } 
+        return true;  
+    }
+        function validarEmail(){
+			//El email contiene @ y .	
+		var email=document.getElementById("email").value;
+		if(!email.match(/@/g)||!email.match(/[/.]/)){
+			alert("El email debe contener @ y .");
+			return false;
+		}
+		return true;	
+		}
+    
+        function validarTel(){
+        //El teléfono contiene algún digito	numérico
+		var telefono=document.getElementById("telefono").value;
+		if(!telefono.match(/[0-9]/g)){
+			alert("El teléfono debe contener algún dígito");
+			return false;
+		}
+		return true;		
+	}
+</script>
+<body>
+<h1>Registrarse</h1>
+	<form action="Controller?option=doRegistrar" method="post" onsubmit="return validarRegistro();">
+		Usuario:<input type="text"  id="nombre" name="usuario">
+		<br><br>
+		Contraseña:<input type="password" id="pwd" name="pwd">
+		<br><br>
+		Email:<input type="email" name="email" id="email">
+		<br><br>
+		Teléfono:<input type="tel" name="telefono" id="telefono">
+		<br><br>
+		<input type="submit" value="Registrarse">
+	</form>
+	<br>
+	<a href="Controller?option=toLogin">Inicio</a>
+</body>
+</html>
